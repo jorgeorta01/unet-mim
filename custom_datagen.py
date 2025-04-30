@@ -7,14 +7,11 @@ def load_img(img_dir, img_list):
     for i, image_name in enumerate(img_list):    
         if (image_name.split('.')[1] == 'npy'):
             
-            image = np.load(img_dir+image_name)
-                      
+            image = np.load(img_dir+image_name).astype(np.float32)
             images.append(image)
     images = np.array(images)
     
     return(images)
-
-
 
 
 def imageLoader(img_dir, img_list, mask_dir, mask_list, batch_size):
